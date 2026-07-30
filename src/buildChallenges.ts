@@ -15,15 +15,19 @@ export type BuildChallengeData = {
   weight: number
 }
 
+const registrar = () => {
+  console.log('visitante registrado')
+}
+
 export const buildChallengeData: BuildChallengeData = {
-  version: 2.0, // ERRO 1: deveria ser string
-  visitors: '1200', // ERRO 2: deveria ser number
-  published: 'sim', // ERRO 3: deveria ser boolean
-  tags: ['jovi', 2026, 'berna'], // ERRO 4: elemento numérico em string[]
-  rating: true, // ERRO 5: deveria ser number
-  owner: { name: 'André', age: 'adulto' }, // ERRO 6: age deveria ser number
-  colors: ['preto', 'branco'], // ERRO 7: tupla exige três itens
-  onVisit: 'registrar acesso', // ERRO 8: deveria ser uma função
-  birthYear: null, // ERRO 9: null não é number
-  weight: undefined, // ERRO 10: undefined não é number
+  version: '2.0', // ERRO 1: deveria ser string
+  visitors: 1200, // ERRO 2: deveria ser number
+  published: true, // ERRO 3: deveria ser boolean
+  tags: ['jovi', '2026', 'berna'], // ERRO 4: elemento numérico em string[]
+  rating: 3, // ERRO 5: deveria ser number
+  owner: { name: 'André', age: 40 }, // ERRO 6: age deveria ser number
+  colors: ['preto', 'branco', 'amarelo'], // ERRO 7: tupla exige três itens
+  onVisit: registrar, // agora é uma função válida
+  birthYear: 0, // ERRO 9: null não é number
+  weight: 0, // ERRO 10: undefined não é number
 }
